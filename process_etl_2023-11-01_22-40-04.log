@@ -1,0 +1,51 @@
+2023-11-01 22:40:04,019 - INFO - ETL job started at 2023-11-01 22:40:04.019972
+2023-11-01 22:40:04,577 - INFO - Downloading file from: http://data.gdeltproject.org/gdeltv2/20231102034500.export.CSV.zip
+2023-11-01 22:40:04,791 - INFO - Data enrichmemnt completed with no issues
+2023-11-01 22:40:04,947 - INFO - Found credentials in environment variables.
+2023-11-01 22:40:05,132 - INFO - Found credentials in environment variables.
+2023-11-01 22:40:06,405 - INFO - previewing the us_events data
+2023-11-01 22:40:06,406 - INFO -      GLOBALEVENTID   SQLDATE EventCode EventBaseCode EventRootCode  ... STATE COUNTY                  NAME    LSAD  CENSUSAREA
+5       1137552841  20221102   Unknown       Unknown       Unknown  ...    36    061              New York  County      22.829
+320     1137553156  20231102   Unknown       Unknown       Unknown  ...    36    061              New York  County      22.829
+356     1137553192  20231102   Unknown       Unknown       Unknown  ...    36    061              New York  County      22.829
+845     1137553681  20231102   Unknown       Unknown       Unknown  ...    36    061              New York  County      22.829
+847     1137553683  20231102   Unknown       Unknown       Unknown  ...    36    061              New York  County      22.829
+10      1137552846  20231026   Unknown       Unknown       Unknown  ...    11    001  District of Columbia              61.048
+16      1137552852  20231026   Unknown       Unknown       Unknown  ...    11    001  District of Columbia              61.048
+296     1137553132  20231102   Unknown       Unknown       Unknown  ...    11    001  District of Columbia              61.048
+326     1137553162  20231102   Unknown       Unknown       Unknown  ...    11    001  District of Columbia              61.048
+491     1137553327  20231102   Unknown       Unknown       Unknown  ...    11    001  District of Columbia              61.048
+
+[10 rows x 20 columns]
+2023-11-01 22:40:06,438 - INFO - checking the first 10 columns
+2023-11-01 22:40:06,439 - INFO -       GLOBALEVENTID   SQLDATE EventCode EventBaseCode  ... ActionGeo_CountryCode ActionGeo_Lat ActionGeo_Long       DATEADDED
+991      1137553827  20231102   Unknown       Unknown  ...                    US       29.4241       -98.4936  20231102034500
+1001     1137553837  20231102   Unknown       Unknown  ...                    US       37.6690       -84.6514  20231102034500
+1007     1137553843  20231102   Unknown       Unknown  ...                    US       45.4166       -91.8502  20231102034500
+1008     1137553844  20231102   Unknown       Unknown  ...                    US       32.7673       -89.6812  20231102034500
+1010     1137553846  20231102   Unknown       Unknown  ...                    US       42.5167       -96.8170  20231102034500
+1015     1137553851  20231102   Unknown       Unknown  ...                    US       48.2325      -101.2940  20231102034500
+1052     1137553888  20231102   Unknown       Unknown  ...                    US       44.7980       -93.5269  20231102034500
+1125     1137553961  20231102   Unknown       Unknown  ...                    US       45.5235      -122.6760  20231102034500
+1188     1137554024  20231102   Unknown       Unknown  ...                    US       39.8647       -86.2604  20231102034500
+1191     1137554027  20231102   Unknown       Unknown  ...                    US       39.8647       -86.2604  20231102034500
+
+[10 rows x 10 columns]
+2023-11-01 22:40:06,444 - INFO - checking the last 10 columns
+2023-11-01 22:40:06,446 - INFO -                                               SOURCEURL                     geometry  index_right     id          GEO_ID STATE COUNTY       NAME    LSAD  CENSUSAREA
+991   https://www.ksat.com/news/local/2023/11/02/san...   POINT (-98.49360 29.42410)         1533  48029  0500000US48029    48    029      Bexar  County    1239.820
+1001  https://www.wbko.com/2023/11/02/community-food...   POINT (-84.65140 37.66900)         1712  21079  0500000US21079    21    079    Garrard  County     230.077
+1007  https://www.fox9.com/news/man-dies-after-being...   POINT (-91.85020 45.41660)          640  55005  0500000US55005    55    005     Barron  County     862.711
+1008  https://www.ivpressonline.com/news/nation/only...   POINT (-89.68120 32.76730)          368  28079  0500000US28079    28    079      Leake  County     583.000
+1010  https://www.yankton.net/community/article_e235...   POINT (-96.81700 42.51670)         1262  31051  0500000US31051    31    051      Dixon  County     476.232
+1015  https://news.yahoo.com/north-dakota-woman-accu...  POINT (-101.29400 48.23250)         1223  38101  0500000US38101    38    101       Ward  County    2013.279
+1052  https://www.fox9.com/news/former-shakopee-guar...   POINT (-93.52690 44.79800)         3111  27139  0500000US27139    27    139      Scott  County     356.476
+1125  https://www.oregonlive.com/politics/2023/11/gr...  POINT (-122.67600 45.52350)         1481  41051  0500000US41051    41    051  Multnomah  County     431.297
+1188  https://www.washingtontimes.com/news/2023/nov/...   POINT (-86.26040 39.86470)          911  18097  0500000US18097    18    097     Marion  County     396.298
+1191  https://www.washingtontimes.com/news/2023/nov/...   POINT (-86.26040 39.86470)          911  18097  0500000US18097    18    097     Marion  County     396.298
+2023-11-01 22:40:07,415 - ERROR - Error pushing data to PostGIS: (psycopg2.ProgrammingError) can't adapt type 'Point'
+[SQL: INSERT INTO base_test.base_data ("GLOBALEVENTID", "SQLDATE", "EventCode", "EventBaseCode", "EventRootCode", "ActionGeo_FullName", "ActionGeo_CountryCode", "ActionGeo_Lat", "ActionGeo_Long", "DATEADDED", "SOURCEURL", geometry, index_right, id, "GEO_ID ... 174982 characters truncated ... %(GEO_ID__424)s, %(STATE__424)s, %(COUNTY__424)s, %(NAME__424)s, %(LSAD__424)s, %(CENSUSAREA__424)s)]
+[parameters: {'LSAD__0': 'County', 'GLOBALEVENTID__0': 1137552841, 'SQLDATE__0': 20221102, 'EventCode__0': 'Unknown', 'NAME__0': 'New York', 'COUNTY__0': '061', 'ActionGeo_CountryCode__0': 'US', 'ActionGeo_Long__0': -73.9662, 'DATEADDED__0': 20231102034500, 'SOURCEURL__0': 'https://www.dailyrepublic.com/state-nation-world/donald-trump-jr-takes-the-stand-at-family-s-nyc-trial-denies-involvement-in-fraudulent/article_975dea8c-791b-11ee-bd68-974c2049395d.html', 'ActionGeo_Lat__0': 40.7834, 'EventRootCode__0': 'Unknown', 'id__0': '36061', 'ActionGeo_FullName__0': 'Manhattan, New York, United States', 'STATE__0': '36', 'EventBaseCode__0': 'Unknown', 'CENSUSAREA__0': 22.829, 'index_right__0': 2754, 'geometry__0': <POINT (-73.966 40.783)>, 'GEO_ID__0': '0500000US36061', 'LSAD__1': 'County', 'GLOBALEVENTID__1': 1137553156, 'SQLDATE__1': 20231102, 'EventCode__1': 'Unknown', 'NAME__1': 'New York', 'COUNTY__1': '061', 'ActionGeo_CountryCode__1': 'US', 'ActionGeo_Long__1': -73.9613, 'DATEADDED__1': 20231102034500, 'SOURCEURL__1': 'https://religionnews.com/2023/11/01/jewish-students-on-campus-feel-threatened-scared-amid-antisemitic-spike/', 'ActionGeo_Lat__1': 40.809, 'EventRootCode__1': 'Unknown', 'id__1': '36061', 'ActionGeo_FullName__1': 'Columbia University, New York, United States', 'STATE__1': '36', 'EventBaseCode__1': 'Unknown', 'CENSUSAREA__1': 22.829, 'index_right__1': 2754, 'geometry__1': <POINT (-73.961 40.809)>, 'GEO_ID__1': '0500000US36061', 'LSAD__2': 'County', 'GLOBALEVENTID__2': 1137553192, 'SQLDATE__2': 20231102, 'EventCode__2': 'Unknown', 'NAME__2': 'New York', 'COUNTY__2': '061', 'ActionGeo_CountryCode__2': 'US', 'ActionGeo_Long__2': -73.9613, 'DATEADDED__2': 20231102034500, 'SOURCEURL__2': 'https://religionnews.com/2023/11/01/jewish-students-on-campus-feel-threatened-scared-amid-antisemitic-spike/' ... 8400 parameters truncated ... 'ActionGeo_Lat__422': 45.5235, 'EventRootCode__422': 'Unknown', 'id__422': '41051', 'ActionGeo_FullName__422': 'Portland, Oregon, United States', 'STATE__422': '41', 'EventBaseCode__422': 'Unknown', 'CENSUSAREA__422': 431.297, 'index_right__422': 1481, 'geometry__422': <POINT (-122.676 45.524)>, 'GEO_ID__422': '0500000US41051', 'LSAD__423': 'County', 'GLOBALEVENTID__423': 1137554024, 'SQLDATE__423': 20231102, 'EventCode__423': 'Unknown', 'NAME__423': 'Marion', 'COUNTY__423': '097', 'ActionGeo_CountryCode__423': 'US', 'ActionGeo_Long__423': -86.2604, 'DATEADDED__423': 20231102034500, 'SOURCEURL__423': 'https://www.washingtontimes.com/news/2023/nov/1/senate-republicans-revolt-against-tommy-tuberville/', 'ActionGeo_Lat__423': 39.8647, 'EventRootCode__423': 'Unknown', 'id__423': '18097', 'ActionGeo_FullName__423': 'Indiana, United States', 'STATE__423': '18', 'EventBaseCode__423': 'Unknown', 'CENSUSAREA__423': 396.298, 'index_right__423': 911, 'geometry__423': <POINT (-86.26 39.865)>, 'GEO_ID__423': '0500000US18097', 'LSAD__424': 'County', 'GLOBALEVENTID__424': 1137554027, 'SQLDATE__424': 20231102, 'EventCode__424': 'Unknown', 'NAME__424': 'Marion', 'COUNTY__424': '097', 'ActionGeo_CountryCode__424': 'US', 'ActionGeo_Long__424': -86.2604, 'DATEADDED__424': 20231102034500, 'SOURCEURL__424': 'https://www.washingtontimes.com/news/2023/nov/1/senate-republicans-revolt-against-tommy-tuberville/', 'ActionGeo_Lat__424': 39.8647, 'EventRootCode__424': 'Unknown', 'id__424': '18097', 'ActionGeo_FullName__424': 'Indiana, United States', 'STATE__424': '18', 'EventBaseCode__424': 'Unknown', 'CENSUSAREA__424': 396.298, 'index_right__424': 911, 'geometry__424': <POINT (-86.26 39.865)>, 'GEO_ID__424': '0500000US18097'}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2023-11-01 22:40:07,415 - INFO - ETL job finished at 2023-11-01 22:40:07.415328
+2023-11-01 22:40:07,416 - INFO - ETL job executed in 2.8378748893737793 seconds
