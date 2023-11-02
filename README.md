@@ -7,8 +7,8 @@ Download the file from the given URL.
 Extract content from the ZIP file.
 Transform the data into a dataframe.
 Perform geospatial processing on the dataframe.
-Run data quality checks on the dataframe. If any check fails, log the issue, upload df to s3 and alert the team and exit the function.
-Push the resulting dataframe to PostGIS.
+Run data quality checks on the dataframe. If any check fails, log the issue, upload df to s3 and alert the team, then exit the function.
+If dataQuality checks passed, push the resulting dataframe to PostGIS. If pushing fails, alert the team and load data to s3 for future processing
 
 
 To run the script, create a .env file and store the folllowing
