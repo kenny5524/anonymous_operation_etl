@@ -12,22 +12,22 @@ Push the resulting dataframe to PostGIS.
 
 
 To run the script, create a .env file and store the folllowing
-AWS_ACCESS_KEY_ID=
-AWS_SECRET_ACCESS_KEY=
-BUCKET_NAME=
+AWS_ACCESS_KEY_ID=<aws_access_key>
+AWS_SECRET_ACCESS_KEY=<aws_secret>
+BUCKET_NAME=<s3-bucket_name>
 # Database Credentials
-DATABASE_PASSWORD=
-DATABASE_HOST=
-DATABASE_USERNAME=
-DATABASE_NAME=
+DATABASE_PASSWORD=<password>
+DATABASE_HOST=<database_host>
+DATABASE_USERNAME=<username>
+DATABASE_NAME=<db_name>
 DATABASE_PORT=5432
         
 # GDELT Data URL
 GDELT_DATA_URL='http://data.gdeltproject.org/gdeltv2/lastupdate.txt'
 GEO_DATA_URL='https://raw.githubusercontent.com/plotly/datasets/master/geojson-counties-fips.json'
 
-Create a virtial environment with the requirements.txt file. You now run the python script in your terminal as [python etl_job.py]
-A log file will be created and stored in your home directory
+Create a virtial environment using python_version 3.8 or later with the requirements.txt file. You now run the python script in your terminal as [python etl_job.py]
+A log file will be created and stored in your home directory. The log file contain basic logs of actions, errors and data previous after transformations
 
 
 
@@ -42,7 +42,8 @@ Automated Data Retrieval: Integrate automated retrieval mechanisms such as webho
 2. Additional Data Preparation Steps and Quality Checks:
 Data Validation: Before processing, I validate data based on predefined criteria and familiairity with the data. For instance, validate date formats, ensure required fields aren't null, and check for permitted value ranges.
 
-Data Deduplication: Check for and remove any duplicate records to maintain data integrity.
+Data Deduplication: Check for and remove any duplicate records to maintain data integrity. This is done by finding unique ids. id unique_id is not equal to number of rows, we can employ a deduplication mechanism using 
+pandas or sql techniques
 
 Normalization: Normalize data to ensure it adheres to a standard format or structure, making it consistent across the dataset.
 
