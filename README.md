@@ -50,7 +50,7 @@ Normalization: Normalize data to ensure it adheres to a standard format or struc
 3. Approaching Unresolved Data Errors:
 Error Segregation: Segregate erroneous data into a separate 'error' database or table. This ensures that the main data flow isn't halted due to a few erroneous records.
 
-Root Cause Analysis: Periodically analyze the error database/table to understand common reasons for failure and improve the data acquisition or processing logic.
+Root Cause Analysis: Periodically analyze the error database/table/bucket to understand common reasons for failure and improve the data acquisition or processing logic.
 
 
 4. Staging Using Data Warehousing Strategies:
