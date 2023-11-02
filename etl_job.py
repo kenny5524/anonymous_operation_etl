@@ -191,6 +191,8 @@ def geospatial_processing(df):
         geometry = [Point(xy) for xy in zip(df['ActionGeo_Long'], df['ActionGeo_Lat'])]
         geo_df = gpd.GeoDataFrame(df, geometry=geometry, crs="EPSG:4326")  # Setting CRS to match `us_counties`
         us_events = gpd.sjoin(geo_df, us_counties, predicate="within")  # Replacing op with predicate
+        logging.info('previewing the us_events data')
+        logging.info(us_events.head(10))
         return us_events
     except Exception as e:
         logging.error(f"Geo-processing error: {e}")
